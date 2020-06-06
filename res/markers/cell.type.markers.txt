@@ -1,0 +1,26 @@
+marker	protein	hgnc.symbol	cell.type
+CD45+	CD45	PTPRC	Leukocyte
+CD3+	CD3	CD3D	T-cell
+CD4+	CD4	CD4	T-cell
+CD8+	CD8	CD8A	T-cell
+FOXP3+	FOXP3	FOXP3	T-reg
+CD19+	CD19	CD19	B-cell
+CD20+	MS4A1	MS4A1	B-cell
+CD11c	CD11c	ITGAX	DC
+CD123	CD123	IL3RA	DC
+CD56	CD56	NCAM1	NK cell
+CD34	CD34	CD34	MAST cell
+CD117	CD117	KIT	MAST cell
+CD203c	CD203c	ENPP3	MAST cell
+CD14	CD14	CD14	Macrophage
+CD33	CD33	CD33	Macrophage
+CD163	CD163	CD163	Macrophage
+CD66b	CD66b	CD66b	Granulocyte
+CD66b	CD66b	CD67	Granulocyte
+CD66b	CD66b	CGM6	Granulocyte
+CD66b	CD66b	CEACAM8	Granulocyte
+COL1A1	COL1A1	COL1A1	Fibroblasts
+CDH5	CDH5	CDH5	Endothelial cells
+CD146	CD146	MCAM	Endothelial cells
+CD326	CD326	EPCAM	Epithelial
+MKI67	MKI67	MKI67	Proliferating cells

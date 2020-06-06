@@ -1,0 +1,143 @@
+Table S4. List of gene signatures; sources for T cell signatures are stated in STAR Methods; M1 and M2 signatures are listed with sources in second and third sheet with references on the fourth sheet
+
+Treg	CD8 T Cell Activation	Anti-inflammatory	Anergy	Pro inflammatory	Lipid mediators	Glycolysis	TCA cycle	Pentose Phosphate Pathway	Glycogen Metabolism	Glucose Deprivation	M1 Macrophage Polarization	M2 Macrophage Polarization	Cytolytics effector pathway	Type I Interferon response	Type II Interferon Response	Hypoxia/HIF regulated	TCell Terminal Differentiation	G1/S	G2/M
+NT5E	CD69	TIGIT	EGR3	IL1A	ADIPOQ	ALDOA	ACLY	G6PD	GBE1	NRN1	IL12	ARG1	EOMES	IRF1	IFNG	AL2	TIGIT	BRCA1	AURKA
+CD3D	CCR7	IDO1	NR4A3	IL1B	CD137	ALDOB	ACO1	6PD	GYS1	FAM129A	IL23	ARG2	TBX21	IFIH1	CXCL9	ALDOA	PDCD1	BRCA2	BIRC5
+CD3G	CD27	LGALS3	EGR1	TNF	AgRP	ALDOC	ACO2	PGLS	GYS2	1L23A	IL12	IL10	GZMB	IFITM3	CXCL10	AM	CD274	CCNE1	BUB1
+CD3E	BTLA	PDCD1	NR4A2	IFNG	ANGPT1	BPGM	CS	PRPS1	UGP2	SPRY1	TNF	CD32	PRF1	DDX58	STAT1	BCL2	CTLA4	CCNE2	BUB1B
+CD4	CD40LG	FOXP3	EGR2	TBX21	ANGPT2	ENO1	DLAT	PRPS1L1	AGL	GADD45B	IL6	CD163	FASL	IFI44L	MHC I	BCL2L1	LAG3	CCNG2	CCNA2
+CD5	IL2RA	ENTPD1	TNFSF11	CCL3	ANGPTL3	ENO2	DLD	PRPS2	PGM1	HSPA1A/B	CD86	CD23	GZMH	IFI6	MHC II	FOS	HAVCR2	CDC25A	CCNB1
+ENTPD1	CD3E	CD274	IRF4	CCL4	ANGPTL4	GALM	DLST	RBKS	PGM2	GPNMB	MHCII	CD200R1	GZMA	IFITM2	PD-L1	JUN	CD244	CDC45	CCNB2
+CTLA4	CD47	CSF2	GCH1	PRF1	ANGPTL6	GCK	FH	RPE	PGM3	HAVCR2	IL1B	PD-L2		NAMPT	P21	SRC	CD160	CDC6	CCNF
+IZUMO1R	EOMES	CTLA4	GADD45B	GZMA	BAFF	GPI	IDH1	RPIA	PYGL	SOAT2	MARCO	PDL1		OASL	C-MYC	CBP		CDKN1A	CDC20
+TNFRSF18	GNLY	CXCL12	NFATC1	GZMB	BMP4	HK2	IDH2	TALDO1	PYGM	ADAMTS6	iNOS	MARCO		RTP4	SMAD7	CCR6		CDKN2C	CDC25B
+IL2RA	GZMA	CXCL5	JARID2	GZMK	CTSD	HK3	IDH3A	TKT	GSK3A		IL12	CSF1R		TREX1	IRF1	CEBPB		CDKN3	CDC25C
+ITGAE	GZMB	IL8	SLC29A3	GZMH	CTSS	PFKL	IDH3B		GSK3B		CD64	CD206		ADAR		ENOLAS		DHFR	CDK1
+LAG3	PRF1	MIF	HLF	CD8A	CCL2	PGAM2	IDH3G		PHKA1		CD80	IL1RN		FAM46C		FAS		E2F1	CDKN2D
+TGFB1	IFNG	PTGS2	ZFP36L1	FASLG	CCL5	PGK1	MDH1		PHKB		CXCR10	IL1R2		LY6E		FASLG		E2F5	CENPA
+LRRC32	CD8A	VEGFA	RNF19A	CCL2	RARRES2	PGK2	MDH1B		PHKG1		IL23	IL4R		MCOLN2		FKBP52		H1F0	CENPF
+TNFRSF4	CD8B		ADORA2B	CCL20	CFD	PGM1	MDH2		PHKG2		CXCL9	CCL4		APOBEC3G		GAPDH		H1FNT	CKS2
+SELL	CD95L		CCRN41	IL2	CRP	PGM2	OGDH				CXCL10	CCL13		IL15		GLUT1		H1FOO	KIF20A
+FOXP3	LAMP1		DUSP6	IL6	CXCL8	PGM3	PC				CXCL11	CCL20		ISG15		GLUT3		H1FX	PLK1
+STAT5A	LAG3		NDRG1	IL12a	CD26	PKLR	PCK1PCK2				CD86	CCL17		MX1		CSF2		H2AFB1	RACGAP1
+STAT5B	CTLA4		ADORA2A	IL17a	ESM1	TPI1	PDHA1				IL1A	CCL18		TLR3		IFNG		H2AFB2	TOP2A
+LGALS1	HLA-DRA		HSPA1A	IL23a	S100A12		PDHB				IL1B	CCL22				IFNB1		H2AFB3	
+IL10	TNFRSF4		PFKP	PTGS2	AHSG		SDHA				IL6	CCL24				IL13		H2AFJ	
+IL12A	ICOS		FYN	TLR4	FGF1		SDHB				TNFa	LYVE1				IL1R1		H2AFV	
+EBI3	TNFRSF9		CTSE	TNF	FGF2		SDHD				MHCII	VEGFA				IL2RA		H2AFVP1	
+TGFB1	TNFRSF18		ZFP629		FGF21		SUCLA2				CCL5	VEGFB				IL4		H2AFX	
+			F2R		FGF23		SUCLG1				IRF5	VEGFC				IL5		H2AFY	
+			RNF128		LGALS3		SUCLG2				IRF1	VEGFD				IL6R		H2AFY2	
+			LAG3		GCG						CD40	EGF				IL8		H2AFZ	
+			RGS16		GH1						IDO1	CTSA				IL10R		H2AFZP1	
+			E2F1		HGF						KYNU	CTSB				IL15R		H2AFZP2	
+			E2F2		ICAM1						CCR7	CSTC				ITGA6		H2AFZP3	
+					IGFBP1						CD45	CTSD				ITK		H2AFZP4	
+					IGFBP2						CD68	TGFB1				JUN D		H2AFZP5	
+					IGFBP3						CD115	TGFB2				CLB54		H2AFZP6	
+					IGFBP4						HLA-DR	TGFB3				MAP3K5		H2BFM	
+					IGFBP6						CD205	MMP14				MAP2K1		H2BFS	
+					IGFBP7						CD14	MMP19				MAP2K2		H2BFWT	
+					IL1b							MMP9				MIF		H2BFXP	
+					IL6							CLEC7A				NFATC1		H3F3A	
+					IL10							WNT7B				NFKB2		H3F3AP1	
+					IL11							FASL				NFKBIE		H3F3AP2	
+					INS							TNFSF12				P53		H3F3B	
+					LEP							TNFSF8				TGM6		H3F3C	
+					LIF							CD276				TNF		HIST1H1A	
+					NGAL							VTCN1				TNFRSF1B		HIST1H1B	
+					MCSF							MSR1				TRADD		HIST1H1C	
+					MIF							FN1				TRAIL		HIST1H1D	
+					MPO							IRF4				TRAP1		HIST1H1E	
+					GHRL							CD45				VEGF		HIST1H1PS1	
+					GHSR							CD68						HIST1H1PS2	
+					LIPE							CD115						HIST1H1T	
+					LPL							HLA-DR						HIST1H2AA	
+					AGT							CD205						HIST1H2AB	
+					CEBPA							CD14						HIST1H2AC	
+					CFD													HIST1H2AD	
+					FABP4													HIST1H2AE	
+					FASN													HIST1H2AG	
+					IRS2													HIST1H2AH	
+					KLF15													HIST1H2AI	
+					PPARG													HIST1H2AJ	
+					PPARGC1A													HIST1H2AK	
+					RETN													HIST1H2AL	
+					SRT3													HIST1H2AM	
+					SLC2A4													HIST1H2APS1	
+					SREBF1													HIST1H2APS2	
+					ACACB													HIST1H2APS3	
+					AXIN1													HIST1H2APS4	
+					CCND1													HIST1H2APS5	
+					CDK4													HIST1H2BA	
+					CEBPB													HIST1H2BB	
+					CEBPD													HIST1H2BC	
+					DKK1													HIST1H2BD	
+					E2F1													HIST1H2BE	
+					FABP4													HIST1H2BF	
+					FASN													HIST1H2BG	
+																		HIST1H2BH	
+																		HIST1H2BI	
+																		HIST1H2BJ	
+																		HIST1H2BK	
+																		HIST1H2BL	
+																		HIST1H2BM	
+																		HIST1H2BN	
+																		HIST1H2BO	
+																		HIST1H2BPS1	
+																		HIST1H2BPS2	
+																		HIST1H3A	
+																		HIST1H3B	
+																		HIST1H3C	
+																		HIST1H3D	
+																		HIST1H3E	
+																		HIST1H3F	
+																		HIST1H3G	
+																		HIST1H3H	
+																		HIST1H3I	
+																		HIST1H3J	
+																		HIST1H3PS1	
+																		HIST1H4A	
+																		HIST1H4B	
+																		HIST1H4C	
+																		HIST1H4D	
+																		HIST1H4E	
+																		HIST1H4F	
+																		HIST1H4G	
+																		HIST1H4H	
+																		HIST1H4I	
+																		HIST1H4J	
+																		HIST1H4K	
+																		HIST1H4L	
+																		HIST1H4PS1	
+																		HIST2H2AA3	
+																		HIST2H2AA4	
+																		HIST2H2AB	
+																		HIST2H2AC	
+																		HIST2H2BA	
+																		HIST2H2BB	
+																		HIST2H2BC	
+																		HIST2H2BD	
+																		HIST2H2BE	
+																		HIST2H2BF	
+																		HIST2H3A	
+																		HIST2H3C	
+																		HIST2H3D	
+																		HIST2H3PS2	
+																		HIST2H4A	
+																		HIST2H4B	
+																		HIST3H2A	
+																		HIST3H2BA	
+																		HIST3H2BB	
+																		HIST3H3	
+																		HIST4H4	
+																		MCM2	
+																		MCM6	
+																		MSH2	
+																		NASP	
+																		NPAT	
+																		PCNA	
+																		RRM1	
+																		RRM2	
+																		SLBP	
+																		TYMS	

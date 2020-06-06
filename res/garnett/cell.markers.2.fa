@@ -1,0 +1,86 @@
+>Tumor cells
+expressed: CDK4, MDM2
+
+>CD34+ HSP
+expressed: CD34, THY1, ENG, KIT, PROM1  
+references: https://www.stemcell.com/human-hematopoietic-stem-and-progenitor-cell-phenotyping-panels.html, https://www.rndsystems.com/research-area/hematopoietic-stem-cell-markers
+
+>Macs/Monos/DCs
+expressed: CD14, CD68, CD33, TLR7, TLR9, ITGAX, FLT3, CCL18
+references: https://www.bio-rad-antibodies.com/macrophage-m1-m2-tam-tcr-cd169-cd-markers-antibodies.html #https://www.bio-rad-antibodies.com/monocyte-cd-markers-antibodies.html 
+
+>NK cells
+expressed: NCAM1, FCGR3A, CD160, ITGA2, KLRB1
+references: https://www.biolegend.com/essential_markers, https://www.bio-rad-antibodies.com/nk-cell-receptor-antibodies.html
+
+>Monocytes
+expressed: CD14, FCGR1A, CD68, S100A12
+subtype of: Macs/Monos/DCs
+references: https://www.biolegend.com/essential_markers
+
+>B cells
+expressed: CD19, MS4A1, CD79A
+
+>T cells
+expressed: CD3D, CD3E, CD3G
+
+>CD4 T cells
+expressed: CD4, FOXP3, IL2RA, IL7R
+subtype of: T cells
+
+> CD4 resting
+expressed: ID3, CCR7, AQP3, SELL, TCF7
+subtype of : CD4 T cells
+references: https://www.nature.com/articles/s41467-019-12464-3/figures/1
+
+> CD4 active 1 2
+expressed: IL4R, MAL,STAT1,SOCS1
+subtype of : CD4 T cells
+references: https://www.nature.com/articles/s41467-019-12464-3/figures/1
+
+> CD4 active 3
+expressed: IL2, ODC1, WARS, PSAT1, PYCR1, TNF, NME1, MIR155HG
+subtype of : CD4 T cells
+references: https://www.nature.com/articles/s41467-019-12464-3/figures/1
+
+> CD4 Treg
+expressed: FOXP3, RGS1, STAT1, LGALS3, IL2RA, CTLA4, TNFRSF18, TNFRSF4
+subtype of : CD4 T cells
+references: https://www.nature.com/articles/s41467-019-12464-3/figures/1
+
+>CD8 T cells
+expressed: CD8A, CD8B
+subtype of: T cells
+
+>CD8 EM TRM rest
+expressed: KLRB1, AMICA1, PDZD8, CXCR6, RCAN2, ANXA2, CRIP1, ITGA1, GZMK
+subtype of: CD8 T cells
+references: https://www.nature.com/articles/s41467-019-12464-3/figures/1
+
+>CD8 EM TRM active
+expressed: INFG, HOPX, CCL4, CCL3
+subtype of: CD8 T cells
+references: https://www.nature.com/articles/s41467-019-12464-3/figures/1
+
+>CD8 TEMRA active
+expressed: PRF1, MYO1F, RCAN2, KLRD1, XCL2, GNLY, CCL5, NKG7, GZMH
+subtype of: CD8 T cells
+references: https://www.nature.com/articles/s41467-019-12464-3/figures/1
+
+>DCs
+expressed: IL3RA, CD1C, BATF3, THBD, CD209
+subtype of: Macs/Monos/DCs
+references: https://www.biolegend.com/essential_markers, https://www.cell.com/pb-assets/products/nucleus/nucleus-phagocytes/rnd-systems-dendritic-cells-br.pdf
+
+>Endothelial
+expressed: LYVE1, TEK, KDR, RAMP2, FLT1, SELE
+references: https://www.abcam.com/primary-antibodies/endothelial-cell-markers
+
+>Fibroblasts
+expressed: DES, PDGFRA, PDGFRB, FAP
+references: http://biocc.hrbmu.edu.cn/CellMarker/browse.jsp 
+
+>Granulocytes 
+expressed: CEACAM8, FUT4, SIGLEC8, CCR3, IL5RA
+references: https://www.researchgate.net/post/What_are_the_best_markers_for_the_identification_of_Neutrophils_eosinophils_and_circulating_dendritic_cells_in_whole_blood_by_flow_cytometry
+

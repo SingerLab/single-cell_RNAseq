@@ -1,0 +1,57 @@
+tumor.type	hgnc.symbol	fusion	recurrent
+Lipoma	EBF1	EBF1-RPSAP52	1
+Lipoma	RPSAP52	EBF1-RPSAP52	1
+Lipoma	HMGA2	HMGA2-ACKR3, HMGA2-LPP, HMGA2-NFIB, HMGA2-PPAP2B, HMGA2-EBF1, HMGA2-LHFP	1
+Lipoma	ACKR3	HMGA2-ACKR3	1
+Lipoma	LPP	HMGA2-LPP	1
+Lipoma	NFIB	HMGA2-NFIB	1
+Lipoma	PPAP2B	HMGA2-PPAP2B	1
+Lipoma	EBF1	HMGA2-EBF1	0
+Lipoma	LHFP	HMGA2-LHFP	0
+Lipoma	LPP	LPP-C12orf9	0
+Lipoma	C12orf9	LPP-C12orf9	0
+Lipoblastoma	PLAG1	COL1A2-PLAG1,COL3A1-PLAG1,HAS2-PLAG1,RAB2A-PLAG1,RAD51B-PLAG1	1
+Lipoblastoma	COL1A2	COL1A2-PLAG1	1
+Lipoblastoma	COL3A1	COL3A1-PLAG1	1
+Lipoblastoma	HAS2	HAS2-PLAG1	1
+Lipoblastoma	RAB2A	RAB2A-PLAG1	0
+Lipoblastoma	RAD51B	RAD51B-PLAG1	0
+Chondroid lipoma	C11orf95	C11orf95-MKL2	1
+Chondroid lipoma	MKL2	C11orf95-MKL2	1
+Myxoid/round cell liposarcoma	FUS	FUS-DDIT3,FUS-CHOP	1
+Myxoid/round cell liposarcoma	DD1T3	FUS-DDIT3,EWSR1-DDIT3	1
+Myxoid/round cell liposarcoma	CHOP	FUS-CHOP	1
+Myxoid/round cell liposarcoma	EWSR1	EWSR1-DDIT3	1
+Atypical lipomatous tumor	METTL25	METTL25-AMDHD1, METTL25-FGD6, LRTOMT-METTL25,SYT1-METTL25, TBC1D15-METTL25	0
+Atypical lipomatous tumor	AMDHD1	METTL25-AMDHD1	0
+Atypical lipomatous tumor	FGD6	SYT1-FGD6, METTL25-FGD6	0
+Atypical lipomatous tumor	LRTOMT	LRTOMT-METTL25	0
+Atypical lipomatous tumor	NELL1	NELL1-NAV3,NELL1-SYT1	0
+Atypical lipomatous tumor	NAV3	NELL1-NAV3	0
+Atypical lipomatous tumor	SYT1	SYT1-METTL25, SYT1-FGD6, NELL1-SYT1	0
+Atypical lipomatous tumor	PAWR	PAWR-AMDHD1, ZDHHC14-PAWR	0
+Atypical lipomatous tumor	AMDHD1	PAWR-AMDHD1	0
+Atypical lipomatous tumor	FGD6	SYT1-FGD6	0
+Atypical lipomatous tumor	TBC1D15	TBC1D15-METTL25	0
+Atypical lipomatous tumor	UHMK1	UHMK1-DDR2	0
+Atypical lipomatous tumor	DDR2	UHMK1-DDR2	0
+Atypical lipomatous tumor	ZDHHC14	ZDHHC14-PAWR	0
+Dedifferentiated liposarcoma	TRIO	TRIO-TERT	1
+Dedifferentiated liposarcoma	TERT	TRIO-TERT	1
+Dedifferentiated liposarcoma	CNOT2	CNOT2-ASTN2	0
+Dedifferentiated liposarcoma	ASTN2	CNOT2-ASTN2	0
+Dedifferentiated liposarcoma	CTDSP2	CTDSP2-FAM19A2	0
+Dedifferentiated liposarcoma	FAM19A2	CTDSP2-FAM19A2	0
+Dedifferentiated liposarcoma	NR6A1	NR6A1-TRHDE	0
+Dedifferentiated liposarcoma	TRHDE	NR6A1-TRHDE	0
+Dedifferentiated liposarcoma	NUP107	NUP107-LGR5, NUP107-PAPPA	0
+Dedifferentiated liposarcoma	LGR5	NUP107-LGR5	0
+Dedifferentiated liposarcoma	NUP107	NUP107-LGR5	0
+Dedifferentiated liposarcoma	PAPPA	NUP107-PAPPA	0
+Dedifferentiated liposarcoma	RCOR1	RCOR1-WDR70	0
+Dedifferentiated liposarcoma	WDR70	RCOR1-WDR70	0
+Nodular fasciitis	MYH9	MYH9-USP6	1
+Nodular fasciitis	USP6	MYH9-USP6	1
+Soft tissue angiofibroma	AHRR	AHRR-NCOA2	1
+Soft tissue angiofibroma	NCOA2	AHRR-NCOA2	1
+Soft tissue angiofibroma	GTF2I	GTF2I-NCOA2	0

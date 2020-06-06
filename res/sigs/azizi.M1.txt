@@ -1,0 +1,27 @@
+Table S4. List of gene signatures; sources for T cell signatures are stated in STAR Methods; M1 and M2 signatures are listed with sources in second and third sheet with references on the fourth sheet
+
+M1
+NOS2
+IL12
+CD64
+CD64
+CD64
+CD80
+CXCR10
+IL23
+CXCL9
+CXCL10
+CXCL11
+CD86
+IL1A
+IL1B
+IL6
+TNFA
+MHCII
+CCL5
+IRF5
+IRF1
+CD40
+IDO1
+KYNU
+CCR7
