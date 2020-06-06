@@ -19,6 +19,7 @@
 
 # RStudio files
 .Rproj.user/
+.Rproj.user
 
 # produced vignettes
 vignettes/*.html
@@ -37,3 +38,22 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# macOS
+*.DS_Store
+.DS_Store
+
+# data files
+*.txt
+*.tsv
+*.csv
+*.xls*
+*.doc*
+*.Rmd
+*.fastq*
+*.fq.gz
+*.fq.gz*
+*.mtx*
+*outs/
+*.bam*
+*.vcf*
