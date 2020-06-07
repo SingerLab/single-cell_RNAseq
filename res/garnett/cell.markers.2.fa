@@ -1,40 +1,38 @@
 >Tumor cells
 expressed: CDK4, MDM2
 
->M1 Macrophage
-expressed: NOS2,IL12,CD64,CD64,CD64,CD80,CXCR10,IL23,CXCL9,CXCL10,CXCL11,CD86,IL1A,IL1B,IL6,TNFA,MHCII,CCL5,IRF5,IRF1,CD40,IDO1,KYNU,CCR7
-references: https://www.sciencedirect.com/science/article/pii/S0092867418307232
+>CD45+
+expressed: PTPRC
 
->M2 Macrophage
-expressed: ARG1,ARG2,IL10,CD32,CD163,FCER2,CD200R1,PDCD1LG2,CD274,MARCO,CSF1R,MRC1,Il1RA,IL1RN,Il1R2,IL4R,CCL4,CCL13,CCL20,CCL17,CCL18,CCL22,CCL24,LYVE1,VEGFA,VEGFB,VEGFC,VEGFD,EGF,CTSA,CTSB,CSTC,CTSD,TGFB1,TGFB2,TGFB3,MMP14,MMP19,MMP9,CLEC7A,WNT7b,FASL,TNFSF12,TNFSF8,CD276,VTCN1,MSR1,FN1,IRF4
-references: https://www.sciencedirect.com/science/article/pii/S0092867418307232
+>Endothelial
+expressed: LYVE1, TEK, KDR, RAMP2, FLT1, SELE
+references: https://www.abcam.com/primary-antibodies/endothelial-cell-markers
 
->Treg
-expressed: NT5E,CD3D,CD3G,CD3E,CD4,CD5,ENTPD1,CTLA4,IZUMO1R,TNFRSF18,IL2RA,ITGAE,LAG3,TGFB1,LRRC32,TNFRSF4,SELL,FOXP3,STAT5A,STAT5B,LGALS1,IL10,IL12A,EBI3,TGFB1
-references: https://www.sciencedirect.com/science/article/pii/S0092867418307232
+>Fibroblasts
+expressed: DES, PDGFRA, PDGFRB, FAP
+references: http://biocc.hrbmu.edu.cn/CellMarker/browse.jsp 
 
 >CD34+ HSP
 expressed: CD34, THY1, ENG, KIT, PROM1  
 references: https://www.stemcell.com/human-hematopoietic-stem-and-progenitor-cell-phenotyping-panels.html, https://www.rndsystems.com/research-area/hematopoietic-stem-cell-markers
 
->Macs/Monos/DCs
-expressed: CD14, CD68, CD33, TLR7, TLR9, ITGAX, FLT3, CCL18
-references: https://www.bio-rad-antibodies.com/macrophage-m1-m2-tam-tcr-cd169-cd-markers-antibodies.html #https://www.bio-rad-antibodies.com/monocyte-cd-markers-antibodies.html 
-
 >NK cells
 expressed: NCAM1, FCGR3A, CD160, ITGA2, KLRB1
+subtype of: CD45+
 references: https://www.biolegend.com/essential_markers, https://www.bio-rad-antibodies.com/nk-cell-receptor-antibodies.html
-
->Monocytes
-expressed: CD14, FCGR1A, CD68, S100A12
-subtype of: Macs/Monos/DCs
-references: https://www.biolegend.com/essential_markers
 
 >B cells
 expressed: CD19, MS4A1, CD79A
+subtype of: CD45+
 
 >T cells
 expressed: CD3D, CD3E, CD3G
+subtype of: CD45+
+
+>Macs/Monos/DCs
+expressed: CD14, CD68, CD33, TLR7, TLR9, ITGAX, FLT3, CCL18
+subtype of: CD45+
+references: https://www.bio-rad-antibodies.com/macrophage-m1-m2-tam-tcr-cd169-cd-markers-antibodies.html #https://www.bio-rad-antibodies.com/monocyte-cd-markers-antibodies.html 
 
 >CD4 T cells
 expressed: CD4, FOXP3, IL2RA, IL7R
@@ -60,6 +58,11 @@ expressed: FOXP3, RGS1, STAT1, LGALS3, IL2RA, CTLA4, TNFRSF18, TNFRSF4
 subtype of : CD4 T cells
 references: https://www.nature.com/articles/s41467-019-12464-3/figures/1
 
+>Treg AZ
+expressed: NT5E,CD3D,CD3G,CD3E,CD4,CD5,ENTPD1,CTLA4,IZUMO1R,TNFRSF18,IL2RA,ITGAE,LAG3,TGFB1,LRRC32,TNFRSF4,SELL,FOXP3,STAT5A,STAT5B,LGALS1,IL10,IL12A,EBI3,TGFB1
+subtype of: T cells
+references: https://www.sciencedirect.com/science/article/pii/S0092867418307232
+
 >CD8 T cells
 expressed: CD8A, CD8B
 subtype of: T cells
@@ -79,19 +82,27 @@ expressed: PRF1, MYO1F, RCAN2, KLRD1, XCL2, GNLY, CCL5, NKG7, GZMH
 subtype of: CD8 T cells
 references: https://www.nature.com/articles/s41467-019-12464-3/figures/1
 
+>M1 Macrophage
+expressed: NOS2,IL12,CD64,CD64,CD64,CD80,CXCR10,IL23,CXCL9,CXCL10,CXCL11,CD86,IL1A,IL1B,IL6,TNFA,MHCII,CCL5,IRF5,IRF1,CD40,IDO1,KYNU,CCR7
+subtype of: Macs/Monos/DCs
+references: https://www.sciencedirect.com/science/article/pii/S0092867418307232
+
+>M2 Macrophage
+expressed: ARG1,ARG2,IL10,CD32,CD163,FCER2,CD200R1,PDCD1LG2,CD274,MARCO,CSF1R,MRC1,Il1RA,IL1RN,Il1R2,IL4R,CCL4,CCL13,CCL20,CCL17,CCL18,CCL22,CCL24,LYVE1,VEGFA,VEGFB,VEGFC,VEGFD,EGF,CTSA,CTSB,CSTC,CTSD,TGFB1,TGFB2,TGFB3,MMP14,MMP19,MMP9,CLEC7A,WNT7b,FASL,TNFSF12,TNFSF8,CD276,VTCN1,MSR1,FN1,IRF4
+subtype of: Macs/Monos/DCs
+references: https://www.sciencedirect.com/science/article/pii/S0092867418307232
+
+>Monocytes
+expressed: CD14, FCGR1A, CD68, S100A12
+subtype of: Macs/Monos/DCs
+references: https://www.biolegend.com/essential_markers
+
 >DCs
 expressed: IL3RA, CD1C, BATF3, THBD, CD209
 subtype of: Macs/Monos/DCs
 references: https://www.biolegend.com/essential_markers, https://www.cell.com/pb-assets/products/nucleus/nucleus-phagocytes/rnd-systems-dendritic-cells-br.pdf
 
->Endothelial
-expressed: LYVE1, TEK, KDR, RAMP2, FLT1, SELE
-references: https://www.abcam.com/primary-antibodies/endothelial-cell-markers
-
->Fibroblasts
-expressed: DES, PDGFRA, PDGFRB, FAP
-references: http://biocc.hrbmu.edu.cn/CellMarker/browse.jsp 
-
 >Granulocytes 
 expressed: CEACAM8, FUT4, SIGLEC8, CCR3, IL5RA
+subtype of: Macs/Monos/DCs
 references: https://www.researchgate.net/post/What_are_the_best_markers_for_the_identification_of_Neutrophils_eosinophils_and_circulating_dendritic_cells_in_whole_blood_by_flow_cytometry
