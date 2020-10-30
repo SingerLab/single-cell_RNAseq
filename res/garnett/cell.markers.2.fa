@@ -5,7 +5,7 @@ expressed: CDK4, MDM2
 expressed: PTPRC
 
 >Endothelial
-expressed: LYVE1, TEK, KDR, RAMP2, FLT1, SELE
+expressed: CDH5, LYVE1, TEK, KDR, RAMP2, FLT1, SELE
 references: https://www.abcam.com/primary-antibodies/endothelial-cell-markers
 
 >Fibroblasts
