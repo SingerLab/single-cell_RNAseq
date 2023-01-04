@@ -2,10 +2,15 @@
 pipelines for the analysis and processing of 10X single-cell RNAseq
 
 ### working group
-gularter@mskcc.org;riosj1@mskcc.org;KulkarA3@mskcc.org;blekhtn@mskcc.org;PersauN4@mskcc.org
+gularter@mskcc.org;riosj1@mskcc.org;PersauN4@mskcc.org
+
+KulkarA3@mskcc.org;blekhtn@mskcc.org
 
 ### data access group
-gularter@mskcc.org;soccin@mskcc.org
+gularter@mskcc.org;soccin@mskcc.org;seffare@mskcc.org
+
+## project
+functional heterogeneity of soft-tissue-sarcomas
 
 ### Project ID
 IGO Project ID: 10154
