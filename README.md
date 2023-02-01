@@ -14,8 +14,6 @@ IGO Project ID:
 Hello all,
 I would like to sort 1-2 M live cells into a single tube. i.e. Calcein Green positive (+), and DAPI negative (-) cells.
 
-Sample will be QC'd at IGO BEFORE sorting, if the viability is high and debris quantity low, the sample will be switched for a set of 5 plates for single-cell sorting
-
 Thank you,
 
 Rodrigo
