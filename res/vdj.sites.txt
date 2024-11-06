@@ -1,0 +1,5 @@
+site	chr	start	end	comments
+TRA	14	22090057	23021075	look for "TRAV.*", "TRD.*", "TRAJ.*"
+TRB	7	141998851	142510972	look for "TRBV.*", "TRBJ.*"
+IgH	14	106032614	107288051
+IgI	22	22599200	22599926
