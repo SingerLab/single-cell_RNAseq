@@ -2,9 +2,9 @@
 pipelines for the analysis and processing of 10X single-cell RNAseq
 
 ### working group
-gularter@mskcc.org;riosj1@mskcc.org;PersauN4@mskcc.org
+gularter@mskcc.org,kurto@mskcc.org,chadalak@mskcc.org,kimy1@mskcc.org,lig4@mskcc.org
 
-KulkarA3@mskcc.org;blekhtn@mskcc.org
+riosj1@mskcc.org;PersauN4@mskcc.org; KulkarA3@mskcc.org;blekhtn@mskcc.org, petersn2@mskcc.org,
 
 ### data access group
 gularter@mskcc.org;soccin@mskcc.org;seffare@mskcc.org
