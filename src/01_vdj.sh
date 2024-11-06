@@ -20,28 +20,32 @@ OUTDIR=$1            ## ML1105_01
 FASTQ_DIR=$2         ## seqdata/Sample_ML1105_IGO_09649_1/
 SAMPLE=$3            ## ML1105_IGO_09649_1
 PROJECT_NAME=$4      ## "ML1105"
-TRANSCRIPTOME=$5     ## cellranger directory name
+REFERENCE=$5     ## cellranger directory name
 
 ## cell ranger version
 CELLRANGER=/work/singer/opt/src/cellranger-7.1.0/cellranger
-#% ~/src/cellranger-3.0.2/cellranger
-#% /work/singer/opt/src/cellranger-6.0.1/cellranger
-## differences between 3.0.2 and 6.0.1 are 10-30 less cells in 6.0.1; As of 23.Apr.2021 we keep 3.0.2
-## will identify if counts are more precise at a later point
-$CELLRANGER count --id=${OUTDIR} \
+
+## reference analysis
+$CELLRANGER vdj --id=${OUTDIR} \
+	    --reference=${REFERENCE} \
  	    --fastqs=${FASTQ_DIR} \
 	    --sample=${SAMPLE} \
-	    --transcriptome=${TRANSCRIPTOME} \
 	    --project=${PROJECT_NAME} \
 	    --localcores=${LSB_MAX_NUM_PROCESSORS} \
-	    --localmem=${MAX_MEM} \
-	    --nosecondary
+	    --localmem=${MAX_MEM} 
 
-[[ ! -d ${OUTDIR} ]] || rm -rf ${OUTDIR}/SC_RNA_COUNTER_CS/
-[[ ! -d ${OUTDIR} ]] || rm -rf ${OUTDIR}/analysis/
+## denovo analysis
+$CELLRANGER vdj --id=${OUTDIR}_DENOVO \
+	    --reference=${REFERENCE} \
+ 	    --fastqs=${FASTQ_DIR} \
+	    --sample=${SAMPLE} \
+	    --project=${PROJECT_NAME} \
+	    --denovo \
+	    --localcores=${LSB_MAX_NUM_PROCESSORS} \
+	    --localmem=${MAX_MEM} 
 
-## velocyto script
-VELOCYTO_SCRIPT=./src/02_velocyto.sh
 
-bsub -n 12 -R "rusage[mem=5]" -W 64:00 -R "span[hosts=1]" "$VELOCYTO_SCRIPT ${TRANSCRIPTOME} ${OUTDIR}"
+## [[ ! -d ${OUTDIR} ]] || rm -rf ${OUTDIR}/SC_RNA_COUNTER_CS/
+## [[ ! -d ${OUTDIR} ]] || rm -rf ${OUTDIR}/analysis/
+
 
