@@ -1,6 +1,8 @@
 #!/bin/bash
 #BSUB -n 12 -R "rusage[mem=7]" -W 64:00 -R "span[hosts=1]"
-MAX_MEM=$(( 5*LSB_MAX_NUM_PROCESSORS - 1 ))
+MEM_PER_JOB=$(echo $(printf "%d\n" ${LSB_CG_MEMLIMIT} )/1024^3 | bc ) ## $( echo $LSB_SUB_RES_REQ | sed -e 's/.*=//' -e 's/]//' )
+MAX_MEM=$(( ${MEM_PER_JOB} * $LSB_MAX_NUM_PROCESSORS - 1 ))
+
 source /work/singer/opt/miniconda3/bin/activate single-cell-rnaseq
 
 #<usage>
