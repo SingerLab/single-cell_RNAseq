@@ -1,5 +1,6 @@
 #!/bin/bash
 set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORK="$(mktemp -d)"
 trap 'rm -rf "${WORK}"' EXIT
 cd "${WORK}"
@@ -50,5 +51,14 @@ awk -v p="${reject_pct}" -v max=20 'BEGIN { exit !(p > max) }' \
 awk -v p="${reject_pct}" -v max=60 'BEGIN { exit (p > max) }' \
     && echo "PASS: 50% reject rate correctly does NOT exceed max_reject_pct=60" \
     || { echo "FAIL: 50% reject rate should not have exceeded max_reject_pct=60"; exit 1; }
+
+## ---- TARGET_DICT naming: run the script's own line (not a copy of it) for both extensions
+dict_line="$(grep '^TARGET_DICT=' "${SCRIPT_DIR}/../06_liftover_sites.sh")"
+for ref in foo.fasta foo.fa; do
+    TARGET_REF_FASTA="${ref}"
+    eval "${dict_line}"
+    [ "${TARGET_DICT}" = "foo.dict" ] || { echo "FAIL: ${ref} -> TARGET_DICT=${TARGET_DICT}, expected foo.dict"; exit 1; }
+done
+echo "PASS: TARGET_DICT naming for .fasta and .fa"
 
 echo "PASS: test_liftover_sites_fixture"

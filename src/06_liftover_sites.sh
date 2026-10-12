@@ -105,8 +105,7 @@ else
 fi
 
 ## ---- Step 2: build target .dict if missing -----------------------------------
-TARGET_DICT="${TARGET_REF_FASTA%.fasta}.dict"
-TARGET_DICT="${TARGET_DICT%.fa}.dict"
+TARGET_DICT="${TARGET_REF_FASTA%.*}.dict"
 if [ ! -f "${TARGET_DICT}" ]; then
     echo "$(date) - [Step 2/3] Building sequence dictionary for ${TARGET_REF_FASTA}..."
     picard CreateSequenceDictionary R="${TARGET_REF_FASTA}" O="${TARGET_DICT}"
