@@ -60,3 +60,4 @@ vignettes/*.pdf
 
 # local git worktrees (subagent-driven-development isolation)
 .worktrees/
+.superpowers/
