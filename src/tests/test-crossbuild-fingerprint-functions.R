@@ -63,6 +63,37 @@ test_that("join_by_id inner-joins on id and suffixes chrom/pos/gt", {
     expect_true(all(c("gt_ref", "gt_query") %in% names(joined)))
 })
 
+test_that("join_by_id drops unannotated '.'/NA ids instead of cross-joining them", {
+    ## 2 "." rows on one side x 3 on the other + 1 real match: a plain merge on
+    ## id would yield 2*3 + 1 = 7 rows (57% concordant); the truth is 1 site, 100%.
+    ref_df <- data.frame(id = c(".", ".", "real", NA), chrom = "1",
+                          pos = c(1L, 2L, 3L, 4L), gt = c("0/0", "0/1", "0/1", "1/1"),
+                          stringsAsFactors = FALSE)
+    query_df <- data.frame(id = c(".", ".", ".", "real", NA), chrom = "chr1",
+                            pos = c(10L, 20L, 30L, 40L, 50L),
+                            gt = c("1/1", "0/1", "1/1", "0/1", "1/1"),
+                            stringsAsFactors = FALSE)
+
+    joined <- join_by_id(ref_df, query_df)
+    expect_equal(nrow(joined), 1)
+    expect_equal(joined$id, "real")
+
+    result <- compute_concordance(joined, min_informative_sites = 1)
+    expect_equal(result$n_sites, 1)
+    expect_equal(result$pct_concordant, 100)
+})
+
+test_that("count_ab_overlap counts informative sites shared by A and B on P22's hg38 chrom:pos", {
+    joined_a <- data.frame(id = c("s1", "s2", "s3"), chrom_query = "chr1", pos_query = c(10L, 20L, 30L),
+                            gt_ref = c("0/1", "0/0", NA), gt_query = c("0/1", "0/1", "0/1"),
+                            stringsAsFactors = FALSE)
+    joined_b <- data.frame(chrom = "chr1", pos = c(20L, 30L, 40L),
+                            gt_ref = c("0/0", "1/1", "0/1"), gt_query = c("0/1", "0/1", "0/1"),
+                            stringsAsFactors = FALSE)
+    ## chr1:20 informative in both; chr1:30 not informative in A; 10/40 one side only
+    expect_equal(count_ab_overlap(joined_a, joined_b), 1)
+})
+
 test_that("join_by_coord inner-joins on chrom+pos regardless of id", {
     ref_df <- data.frame(id = c("X", "Y"), chrom = c("1", "1"), pos = c(500L, 600L),
                           gt = c("0/0", "1/1"), stringsAsFactors = FALSE)
@@ -125,4 +156,26 @@ test_that("write_html_report writes a table containing each row's sample and ban
     expect_true(grepl("P22_C1_D0_01", html))
     expect_true(grepl("strong_match", html))
     expect_true(grepl("97.3", html))
+})
+
+test_that("write_html_report includes A/B agreement, liftover rejections and notes when given", {
+    tmp <- tempfile(fileext = ".html")
+    agreement <- data.frame(sample_id = "P22_C1_D0_01", pct_concordant_a = 97.3,
+                            pct_concordant_b = 60.0, diff = 37.3, agree = FALSE,
+                            n_overlap_ab = 1234L)
+    write_html_report(tmp, "Test Report", list(
+        list(sample = "P22_C1_D0_01", comparison = "A (join by ID)", n_sites = 1500,
+             pct_concordant = 97.3, band = "strong_match")
+    ), agreement = agreement, forward_rejection = "100/17266", reverse_rejection = "NA",
+    notes = c("WARNING: A/B disagree", "Caveat: tumor-only"))
+    html <- paste(readLines(tmp), collapse = "\n")
+    unlink(tmp)
+
+    expect_true(grepl("A vs. B agreement", html))
+    expect_true(grepl("1234", html))
+    expect_true(grepl("FALSE", html))
+    expect_true(grepl("100 of 17266 rejected (0.58%)", html, fixed = TRUE))
+    expect_true(grepl("Reverse (hg19 -> hg38, s_C_FLCCA3 calls): not available", html, fixed = TRUE))
+    expect_true(grepl("WARNING: A/B disagree", html))
+    expect_true(grepl("Caveat: tumor-only", html))
 })

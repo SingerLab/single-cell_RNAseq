@@ -38,7 +38,11 @@ option_list <- list(
     make_option("--min_informative_sites", type = "integer", default = 1366L,
                 help = "Minimum informative sites for a conclusive call [default: %default, matching the cohort's existing low-coverage flag]"),
     make_option("--tolerance_pct", type = "double", default = 10,
-                help = "Max allowed |Comparison A - Comparison B| concordance % before flagging liftover disagreement [default: %default; calibrate via the known-pair sanity check before trusting this on s_C_FLCCA3]")
+                help = "Max allowed |Comparison A - Comparison B| concordance % before flagging liftover disagreement [default: %default; calibrate via the known-pair sanity check before trusting this on s_C_FLCCA3]"),
+    make_option("--forward_liftover_rejected", type = "character", default = NULL,
+                help = "Forward (hg38->hg19) liftover rejections as \"rejected/total\", for the report [optional]"),
+    make_option("--reverse_liftover_rejected", type = "character", default = NULL,
+                help = "Reverse (hg19->hg38) liftover rejections as \"rejected/total\", for the report [optional]")
 )
 
 opt <- parse_args(OptionParser(
@@ -73,8 +77,10 @@ for (i in seq_len(nrow(p22_manifest))) {
     sample_id <- p22_manifest$sample_id[i]
     p22_gt <- read_genotype_vcf(p22_manifest$genotype_vcf_path[i])
 
-    result_a <- compute_concordance(join_by_id(s_flcca3_a, p22_gt), min_informative_sites = opt$min_informative_sites)
-    result_b <- compute_concordance(join_by_coord(s_flcca3_b, p22_gt), min_informative_sites = opt$min_informative_sites)
+    joined_a <- join_by_id(s_flcca3_a, p22_gt)
+    joined_b <- join_by_coord(s_flcca3_b, p22_gt)
+    result_a <- compute_concordance(joined_a, min_informative_sites = opt$min_informative_sites)
+    result_b <- compute_concordance(joined_b, min_informative_sites = opt$min_informative_sites)
 
     band_a <- band_concordance(result_a)
     band_b <- band_concordance(result_b)
@@ -88,7 +94,8 @@ for (i in seq_len(nrow(p22_manifest))) {
                                       band = band_b)
     agreement_rows[[length(agreement_rows) + 1]] <- data.frame(
         sample_id = sample_id, pct_concordant_a = result_a$pct_concordant,
-        pct_concordant_b = result_b$pct_concordant, diff = agreement$diff, agree = agreement$agree
+        pct_concordant_b = result_b$pct_concordant, diff = agreement$diff, agree = agreement$agree,
+        n_overlap_ab = count_ab_overlap(joined_a, joined_b)
     )
 
     cat(sprintf("%s: A=%s (n=%d, %s)  B=%s (n=%d, %s)  A/B agree=%s\n",
@@ -108,13 +115,26 @@ agreement_df <- do.call(rbind, agreement_rows)
 write.table(agreement_df, file.path(opt$out_dir, "p22_crossbuild_fingerprint_ab_agreement.tsv"),
             sep = "\t", row.names = FALSE, quote = FALSE)
 
+## Per-row check: isTRUE() on a vector is always FALSE, so the brief's version warned unconditionally.
+ab_warning <- if (any(agreement_df$agree %in% FALSE)) {
+    paste0("WARNING: Comparison A and B disagree beyond tolerance (", opt$tolerance_pct,
+           " pct points) for at least one sample -- treat results as liftover-uncertain, not a biological verdict, until investigated. See: ",
+           file.path(opt$out_dir, "p22_crossbuild_fingerprint_ab_agreement.tsv"))
+}
+tumor_only_caveat <- paste(
+    "Caveat: s_C_FLCCA3_T001_d01 is tumor-only (no matched normal available).",
+    "Germline identity SNPs should be unaffected, but tumor-only input adds minor noise",
+    "at sites overlapping somatic LOH/CNAs. Not treated as a blocker.")
+
 write_html_report(file.path(opt$out_dir, "p22_crossbuild_fingerprint_report.html"),
                    title = "P22 cross-build sample-identity fingerprint (vs. s_C_FLCCA3)",
-                   rows = rows)
+                   rows = rows, agreement = agreement_df,
+                   forward_rejection = opt$forward_liftover_rejected,
+                   reverse_rejection = opt$reverse_liftover_rejected,
+                   notes = c(ab_warning, tumor_only_caveat))
 
+cat("\nLiftover rejections: forward ", format_rejection(opt$forward_liftover_rejected),
+    "; reverse ", format_rejection(opt$reverse_liftover_rejected), "\n", sep = "")
+cat(tumor_only_caveat, "\n", sep = "")
 cat("\nDone. Report: ", file.path(opt$out_dir, "p22_crossbuild_fingerprint_report.tsv"), "\n", sep = "")
-## Per-row check: isTRUE() on a vector is always FALSE, so the brief's version warned unconditionally.
-if (any(agreement_df$agree %in% FALSE)) {
-    cat("WARNING: Comparison A and B disagree beyond tolerance for at least one sample -- treat results as liftover-uncertain, not a biological verdict, until investigated. See: ",
-        file.path(opt$out_dir, "p22_crossbuild_fingerprint_ab_agreement.tsv"), "\n", sep = "")
-}
+if (!is.null(ab_warning)) cat(ab_warning, "\n", sep = "")
