@@ -57,3 +57,7 @@ vignettes/*.pdf
 *outs/
 *.bam*
 *.vcf*
+
+# local git worktrees (subagent-driven-development isolation)
+.worktrees/
+.superpowers/
