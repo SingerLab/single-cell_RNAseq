@@ -5,18 +5,24 @@ WORK="$(mktemp -d)"
 trap 'rm -rf "${WORK}"' EXIT
 cd "${WORK}"
 
+## Stand-in for Homo_sapiens_assembly19 (b37): bare contig name "1", not "chr1".
 cat > target.fasta <<'EOF'
->chr1
+>1
 ACGTACGTACGTACGTACGTACGTACGTAC
 EOF
 samtools faidx target.fasta
 picard CreateSequenceDictionary R=target.fasta O=target.dict >/dev/null 2>&1
 
 ## Single ungapped block, target shifted +5 vs source -- source pos 10 -> target pos 15.
-cat > shift.chain <<'EOF'
+## Named like the real UCSC hg38ToHg19 chain: chr-prefixed on BOTH sides. Fed to
+## Picard only after the script's own chain rewrite (dest side, field 8 -> "1").
+cat > ucsc.chain <<'EOF'
 chain 1000 chr1 30 + 0 25 chr1 30 + 5 30 1
 25
 EOF
+awk -v col=8 -f "${SCRIPT_DIR}/../lib/chain_strip_chr.awk" ucsc.chain > shift.chain
+grep -q "^chain 1000 chr1 30 + 0 25 1 30 + 5 30 1$" shift.chain \
+    || { echo "FAIL: chain dest side not rewritten to bare b37 name"; cat shift.chain; exit 1; }
 
 ## Two sites: one with a REF allele matching the target base at its lifted position
 ## (should lift successfully), one deliberately mismatched (should be rejected) --
@@ -41,7 +47,15 @@ reject_pct=$(awk -v r="${n_rejected}" -v n="${n_input}" 'BEGIN { printf "%.2f", 
 
 [ "${n_rejected}" -eq 1 ] || { echo "FAIL: expected 1 rejected site (siteB, mismatched REF), got ${n_rejected}"; cat picard.log; exit 1; }
 
-gzip -dc lifted.vcf.gz | grep -q "^chr1	15	siteA	" || { echo "FAIL: siteA did not lift to chr1:15"; exit 1; }
+gzip -dc lifted.vcf.gz | grep -q "^1	15	siteA	" || { echo "FAIL: siteA did not lift to b37 1:15"; exit 1; }
+
+## Negative control: the raw UCSC chain (dest "chr1", absent from the b37 dict)
+## must lift nothing -- this is the bug the chain rewrite exists to prevent.
+picard LiftoverVcf I=input.vcf O=raw.vcf.gz CHAIN=ucsc.chain REJECT=raw.rejected.vcf.gz \
+    R=target.fasta WARN_ON_MISSING_CONTIG=true >picard_raw.log 2>&1 || true
+n_raw_lifted=$(gzip -dc raw.vcf.gz 2>/dev/null | { grep -vc '^#' || true; })
+[ "${n_raw_lifted}" -eq 0 ] || { echo "FAIL: raw chr-named chain unexpectedly lifted ${n_raw_lifted} site(s) onto b37"; exit 1; }
+echo "PASS: unrewritten UCSC chain lifts 0 sites onto b37 (rewrite is required)"
 
 ## Reject-rate abort logic: 1/2 = 50% should trip a 20% max; 1/2 should NOT trip a 60% max.
 awk -v p="${reject_pct}" -v max=20 'BEGIN { exit !(p > max) }' \
